@@ -180,7 +180,7 @@ main.container section.content p {
 	line-height: 0;
 	letter-spacing: 0.135rem;
 	margin: -0.35rem 0 0 0;
-	padding: 200px 50px 0 15rem;
+	padding: 1rem 0 0 17rem;
 	font-family: monospace;
 	font-style: normal;
 	font-weight: 400;
@@ -205,6 +205,10 @@ main.container section.content a {
 main.container section.content a:hover {
 	background: #21211f;
 	transition: all 0.5s ease;
+}
+
+#contact{
+	margin-top: -10px;
 }
 
 /***** Footer *****/
