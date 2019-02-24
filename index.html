@@ -1,50 +1,47 @@
-<!doctype html>
-<html>
-<head>
-    <title>Aarya's Page</title>
-    <meta charset="utf-8">
-    <style>
-        h1{
-            text-decoration: underline;
-	}
-
-	#furry{
-	    font-family: "Helvetica", sans-serif;
-	    color: purple;
-	}
-
-	#cute{
-	    font-family: "Zapfino", serif;
-	    font-weight: bold;
-	    color: rgb(255, 14, 203);
-	}
-
-	#evil{
-	    font-style: italic;
-	    color: red;
-	}
-
-    </style>
+<!DOCTYPE html>
+<!-- saved from url=(0023)https://jonphillips.ca/ -->
+<html dir="ltr" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Aarya's Amazing Alliterational Webpage</title>
+	
+	<meta name="description" content="Jon Phillips is a maker of fine internet stuffs. A designer, developer, entrepreneur, lover of typography and photography.">
+	<meta name="keywords" content="Jon Phillips, design, designer, developer, Montreal, Canada, UX, usability, typography, css, html, jQuery, PHP, user experience, user interface, BuySellAds, Contrastly">
+	<meta name="author" content="Jon Phillips">
+	<meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="apple-touch-icon" href="https://jonphillips.ca/apple-touch-icon.png">
+	<link rel="Shortcut Icon" href="https://jonphillips.ca/favicon.ico" type="image/x-icon">
+	<script src="./Jon Phillips - Maker Of Fine Internet Stuffs_files/jquery.min.js.download"></script>
+	<link rel="stylesheet" href="./Jon Phillips - Maker Of Fine Internet Stuffs_files/style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="./Jon Phillips - Maker Of Fine Internet Stuffs_files/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
-
 <body>
-    
-    <h1>All About Cats</h1>
 
-    <h3>Why I Love Cats</h3>
-    <ul>
-        <li id="furry">Furry
-        <li id="cute">Cute
-        <li id="evil">Evil
-    </ul>
-    
-    <h3>Official Info on Cats</h3>
-    <p><img src="https://www.kasandbox.org/programming-images/animals/cat.png" width="200"> The cat (Felis catus), also known as the domestic cat or housecat to distinguish it from other felines and felids, is a small domesticated carnivorous mammal that is valued by humans for its companionship and ability to hunt vermin and household pests. Cats have been associated with humans for at least 9,500 years, and are currently the most popular pet in the world. Owing to their close association with humans, cats are now found almost everywhere on Earth.</p>
-    <p>Cats are similar in anatomy to the other felids, with strong, flexible bodies, quick reflexes, sharp retractable claws, and teeth adapted to killing small prey. As nocturnal predators, cats use their acute hearing and ability to see in near darkness to locate prey. Not only can cats hear sounds too faint for human ears, they can also hear sounds higher in frequency than humans can perceive. This is because cats' usual prey (particularly rodents such as mice) make high frequency noises, so cats' hearing has evolved to pinpoint these faint high-pitched sounds. Cats rely more on smell than taste, and have a vastly better sense of smell than humans.</p>
-    <p>Despite being solitary hunters, cats are a social species and use a variety of vocalizations, pheromones and types of body language for communication. These include meowing, purring, trilling, hissing, growling, and grunting.</p>
-    <p>Cats have a rapid breeding rate. Under controlled breeding, they can be bred and shown as registered pedigree pets, a hobby known as cat fancy. Failure to control the breeding of pet cats by spaying and neutering and the abandonment of former household pets has resulted in problems caused by large numbers of feral cats worldwide, with a population of up to 60 million of these animals in the United States alone.</p>
-        
-    Read more on <a href="http://en.wikipedia.org/wiki/Cat">Wikipedia</a>.
+<main class="container">
+	<section class="content">
+		<h1>Aarya Singh</h1>
+	<!--	<p id="desc">User Interface Designer</p> -->
+		<a href="mailto:aaryasingh@gmail.com" title="Email Aarya Singh">Contact</a>
+	</section>
+</main>
 
-</body>
-</html>
+<!-- <footer>
+	<a class="tw" href="https://twitter.com/jophillips" title="Jon Phillips on Twitter"><i class="fab fa-twitter"></i></a>
+	<a class="fb" href="https://www.facebook.com/jo.phillips" title="Jon Phillips on Facebook"><i class="fab fa-facebook-f"></i></a>
+	<a class="ig" href="https://www.instagram.com/phillips_jon/" title="Jon Phillips on Instagram"><i class="fab fa-instagram"></i></a>
+	<a class="li" href="https://www.linkedin.com/in/jonathancphillips" title="Jon Phillips on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+</footer> -->
+
+<script>
+var showText = function (target, message, index, interval) {
+	if (index < message.length) {
+		$(target).append(message[index++]);
+		setTimeout(function () { showText(target, message, index, interval); }, interval);
+	}
+}
+$(function () {
+	showText("#desc", "User Interface Designer", 0, 100);
+});
+</script>
+
+
+</body></html>
