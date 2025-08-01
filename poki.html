@@ -33,6 +33,7 @@
             height: 40px;
             background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2764.png') no-repeat center/contain;
             pointer-events: none;
+            transition: opacity 0.3s;
         }
         #score {
             position: absolute;
@@ -129,7 +130,8 @@
                         score++;
                         scoreDisplay.textContent = 'Score: ' + score;
                         h.el.style.opacity = 0.3;
-                        setTimeout(() => h.el.remove(), 300);
+                        // Remove after transition ends
+                        h.el.addEventListener('transitionend', () => h.el.remove());
                         hearts.splice(i, 1);
                         continue;
                     }
