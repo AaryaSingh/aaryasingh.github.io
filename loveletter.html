@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reasons I Love You, Tanisha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #fff0f6;
+            color: #b8005c;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            margin-top: 40px;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px #fff4fa;
+        }
+        .scroll-container {
+            position: relative;
+            width: 90vw;
+            max-width: 500px;
+            height: 320px;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 32px #b8005c22;
+            margin: 40px 0;
+            border: 2px solid #ffb3d1;
+        }
+        .reasons-list {
+            display: flex;
+            flex-direction: column;
+            animation: scrollReasons 20s linear infinite;
+        }
+        .reason {
+            font-size: 1.2rem;
+            padding: 18px 32px;
+            border-bottom: 1px solid #ffe0ef;
+            background: transparent;
+            min-height: 48px;
+            box-sizing: border-box;
+        }
+        @keyframes scrollReasons {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+        /* Responsive */
+        @media (max-width: 600px) {
+            .scroll-container {
+                height: 220px;
+                max-width: 98vw;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .reason {
+                font-size: 1rem;
+                padding: 12px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Reasons I Love You, Tanisha</h1>
+    <div class="scroll-container">
+        <div class="reasons-list" id="reasons-list">
+            <!-- Reasons will be injected here -->
+        </div>
+    </div>
+    <script>
+        // 100+ reasons (add more as you wish)
+        const reasons = [
+            "Your smile brightens my day.",
+            "You always know how to make me laugh.",
+            "You support me in everything I do.",
+            "You are incredibly kind and caring.",
+            "You listen to me, even when I ramble.",
+            "You inspire me to be a better person.",
+            "You are beautiful inside and out.",
+            "You make even ordinary moments special.",
+            "You believe in me when I doubt myself.",
+            "You have the warmest hugs.",
+            "You are my best friend.",
+            "You make me feel loved every single day.",
+            "You are adventurous and fun.",
+            "You are honest and genuine.",
+            "You have the cutest laugh.",
+            "You are patient with me.",
+            "You always encourage my dreams.",
+            "You make me feel safe.",
+            "You are thoughtful and considerate.",
+            "You make every day brighter.",
+            "You are my biggest cheerleader.",
+            "You are creative and talented.",
+            "You always know what to say.",
+            "You make me feel special.",
+            "You are my favorite person.",
+            "You are strong and resilient.",
+            "You are always there for me.",
+            "You make me want to be my best self.",
+            "You are my home.",
+            "You make life more beautiful.",
+            "You are generous and selfless.",
+            "You make me laugh until I cry.",
+            "You are my partner in everything.",
+            "You are my sunshine on cloudy days.",
+            "You are my confidant.",
+            "You make me feel understood.",
+            "You are my soulmate.",
+            "You are my adventure buddy.",
+            "You are my comfort zone.",
+            "You make my heart happy.",
+            "You are my forever.",
+            "You are my dream come true.",
+            "You are my favorite hello and hardest goodbye.",
+            "You make every moment memorable.",
+            "You are my reason to smile.",
+            "You are my everything.",
+            "You are my love.",
+            "You are my Tanisha.",
+            // Repeat or add more for infinite effect
+        ];
+
+        // Duplicate reasons for infinite scroll effect
+        const reasonsList = document.getElementById('reasons-list');
+        function renderReasons() {
+            reasonsList.innerHTML = '';
+            // Show reasons twice for smooth looping
+            for (let i = 0; i < 2; i++) {
+                reasons.forEach((reason, idx) => {
+                    const div = document.createElement('div');
+                    div.className = 'reason';
+                    div.textContent = `${idx + 1}. ${reason}`;
+                    reasonsList.appendChild(div);
+                });
+            }
+        }
+        renderReasons();
+
+        // Adjust animation duration based on number of reasons
+        const duration = reasons.length * 1.2; // seconds per reason
+        reasonsList.style.animationDuration = `${duration}s`;
+    </script>
+</body>
+</html>
