@@ -93,6 +93,7 @@
         const restartBtn = document.getElementById('restartBtn');
 
         let playerX = window.innerWidth / 2 - 30;
+        let targetPlayerX = playerX;
         let score = 0;
         let hearts = [];
         let gameRunning = true;
@@ -101,8 +102,7 @@
         const maxMissed = 5;
 
         function setPlayerPosition(x) {
-            playerX = Math.max(0, Math.min(window.innerWidth - 60, x));
-            player.style.left = playerX + 'px';
+            targetPlayerX = Math.max(0, Math.min(window.innerWidth - 60, x));
         }
 
         function spawnHeart() {
@@ -130,8 +130,8 @@
                         score++;
                         scoreDisplay.textContent = 'Score: ' + score;
                         h.el.style.opacity = 0.3;
-                        // Remove after transition ends, only once
-                        h.el.addEventListener('transitionend', () => h.el.remove(), { once: true });
+                        // Remove after transition ends
+                        h.el.addEventListener('transitionend', () => h.el.remove());
                         hearts.splice(i, 1);
                         continue;
                     }
@@ -149,6 +149,9 @@
 
         function gameLoop() {
             if (!gameRunning) return;
+            // Smoothly interpolate playerX toward targetPlayerX
+            playerX += (targetPlayerX - playerX) * 0.2;
+            player.style.left = playerX + 'px';
             updateHearts();
             gameLoopId = requestAnimationFrame(gameLoop);
         }
@@ -168,7 +171,9 @@
             scoreDisplay.textContent = 'Score: 0';
             hearts.forEach(h => h.el.remove());
             hearts = [];
-            setPlayerPosition(window.innerWidth / 2 - 30);
+            playerX = window.innerWidth / 2 - 30;
+            targetPlayerX = playerX;
+            player.style.left = playerX + 'px';
             gameOverDiv.style.display = 'none';
             gameRunning = true;
             heartInterval = setInterval(spawnHeart, 900);
@@ -185,8 +190,8 @@
             }
         });
         document.addEventListener('keydown', e => {
-            if (e.key === 'ArrowLeft') setPlayerPosition(playerX - 40);
-            if (e.key === 'ArrowRight') setPlayerPosition(playerX + 40);
+            if (e.key === 'ArrowLeft') setPlayerPosition(targetPlayerX - 40);
+            if (e.key === 'ArrowRight') setPlayerPosition(targetPlayerX + 40);
         });
 
         restartBtn.onclick = restartGame;
