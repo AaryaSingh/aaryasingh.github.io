@@ -72,11 +72,9 @@
     <h1>Reasons I Love You, Tanisha</h1>
     <div class="scroll-container">
         <div class="reasons-list" id="reasons-list">
-            <!-- Reasons will be injected here -->
         </div>
     </div>
     <script>
-        // 100+ reasons (add more as you wish)
         const reasons = [
             "Your smile brightens my day.",
             "You always know how to make me laugh.",
@@ -127,10 +125,8 @@
             "You are my everything.",
             "You are my love.",
             "You are my Tanisha.",
-            // Repeat or add more for infinite effect
         ];
 
-        // Duplicate reasons for infinite scroll effect
         const reasonsList = document.getElementById('reasons-list');
         function renderReasons() {
             reasonsList.innerHTML = '';
@@ -145,8 +141,6 @@
             }
         }
         renderReasons();
-
-        // Adjust animation duration based on number of reasons
         const duration = reasons.length * 1.2; // seconds per reason
         reasonsList.style.animationDuration = `${duration}s`;
     </script>
