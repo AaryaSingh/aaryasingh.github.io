@@ -130,8 +130,8 @@
                         score++;
                         scoreDisplay.textContent = 'Score: ' + score;
                         h.el.style.opacity = 0.3;
-                        // Remove after transition ends
-                        h.el.addEventListener('transitionend', () => h.el.remove());
+                        // Remove after transition ends, only once
+                        h.el.addEventListener('transitionend', () => h.el.remove(), { once: true });
                         hearts.splice(i, 1);
                         continue;
                     }
