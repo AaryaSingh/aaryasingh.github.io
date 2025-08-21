@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Aarya's Blog</title>
   <meta charset="UTF-8">
@@ -14,10 +15,14 @@
       --accent: #2563eb;
       --border: #e5e7eb;
       --radius: 12px;
-      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 10px 20px rgba(0,0,0,0.06);
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 10px 20px rgba(0, 0, 0, 0.06);
     }
 
-    html, body { height: 100%; }
+    html,
+    body {
+      height: 100%;
+    }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
@@ -40,19 +45,54 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255, 255, 255, 0.8);
       backdrop-filter: saturate(180%) blur(10px);
       border-bottom: 1px solid var(--border);
     }
 
-    .header-inner { display: grid; gap: 8px; justify-items: center; text-align: center; }
-    .brand { align-self: start; justify-self: start; text-decoration: none; color: var(--text); font-weight: 600; }
-    .brand:hover { color: var(--accent); }
-    .title { margin: 4px 0 0; font-size: 2rem; letter-spacing: -0.01em; }
-    .tagline { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .header-inner {
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+      text-align: center;
+    }
 
-    .layout { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; align-items: start; }
-    @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+    .brand {
+      align-self: start;
+      justify-self: start;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .brand:hover {
+      color: var(--accent);
+    }
+
+    .title {
+      margin: 4px 0 0;
+      font-size: 2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .tagline {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .card {
       background: var(--surface);
@@ -61,29 +101,91 @@
       box-shadow: var(--shadow);
     }
 
-    .post { padding: 24px; }
-    .post + .post { margin-top: 24px; }
-    .post-title { margin: 0 0 8px; font-size: 1.6rem; letter-spacing: -0.01em; }
-    .post-meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
-    .post-content p { margin: 0 0 16px; }
+    .post {
+      padding: 24px;
+    }
 
-    .sidebar .card { padding: 16px 20px; }
-    .sidebar h3 { margin: 0 0 8px; font-size: 1.05rem; }
-    .sidebar p { margin: 0; color: var(--muted); }
-    .link-list { list-style: none; padding: 0; margin: 8px 0 0; }
-    .link-list li { margin: 6px 0; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    a[aria-current="page"] { font-weight: 600; }
+    .post+.post {
+      margin-top: 24px;
+    }
 
-    .site-footer { border-top: 1px solid var(--border); margin-top: 24px; }
-    .site-footer p { margin: 0; color: var(--muted); font-size: 0.9rem; text-align: center; }
+    .post-title {
+      margin: 0 0 8px;
+      font-size: 1.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .post-meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .post-content p {
+      margin: 0 0 16px;
+    }
+
+    .sidebar .card {
+      padding: 16px 20px;
+    }
+
+    .sidebar h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .sidebar p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0;
+    }
+
+    .link-list li {
+      margin: 6px 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a[aria-current="page"] {
+      font-weight: 600;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    .site-footer p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
 
     /* Accessible focus styles */
-    :focus { outline: 3px solid rgba(37, 99, 235, 0.35); outline-offset: 2px; }
-    :focus:not(:focus-visible) { outline: none; }
+    :focus {
+      outline: 3px solid rgba(37, 99, 235, 0.35);
+      outline-offset: 2px;
+    }
+
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
   </style>
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -101,40 +203,73 @@
           <time datetime="2025-08-01">Aug 2025</time>
         </div>
         <div class="post-content">
-          <h3>Defining Technical Communication</h3>
-          <p>
-              If I were to explain technical communication to a colleague, I'd say it's the process of making complex information clear, concise, and easy for a specific audience to use. It’s not just about writing manuals; it's about creating any communication—be it an email, a presentation, a short video, or a webpage—that helps people understand a topic, complete a task, or make a decision.
-          </p>
-          <p>
-              My past experience in team projects has shown me that without clear, targeted communication, projects stall and misunderstandings are common. This aligns with the chapter's definition, which describes technical communication as a set of activities people do to <q>discover, shape, and transmit information</q> with a specific purpose and audience in mind. It's the bridge between the expert and the person who needs to use that expert's knowledge.
-          </p>
-      
-          <h3>An Example of Effective Technical Communication</h3>
-          <p>
-              An excellent example of effective technical communication is the <em>"Symptoms of a Heart Attack"</em> infographic from the American Heart Association. Many people might see this as a simple health poster, but it's a powerful piece of technical communication designed to convey critical information quickly and effectively in a high-stakes situation.
-          </p>
-          <img src="https://www.heart.org/-/media/Images/Health-Topics/Heart-Attack/Common-Heart-Attack-warning-signs-infographic.jpg?h=849&w=694&sc_lang=en" alt="Symptoms of a Heart Attack Infographic" style="max-width: 100%; height: auto;">
-      
-          <h3>Analysis Using Measures of Excellence</h3>
-          <p>This infographic excels when measured against several of the "Measures of Excellence in Technical Documents" mentioned in the chapter:</p>
-          <ul>
-            <li>Clarity: The infographic's goal is to convey a single, easily understood meaning. It uses simple language ("Chest discomfort," "Shortness of breath") and clear icons to represent each symptom. There's no jargon, which is crucial for a general audience that doesn't have medical training.</li>
-            <li>Conciseness: In an emergency, no one has time to read a long document. This infographic presents the most vital information economically. The use of bullet points and icons gets the message across in seconds. It's a perfect example of how to "convey a lot of information economically."</li>
-            <li>Usability: This is arguably its strongest feature. The design is clean, the text is large, and the combination of words and images makes it highly accessible. Someone experiencing these symptoms, or a bystander, can quickly scan the graphic, understand the danger, and know to call 911 immediately. It achieves its purpose—motivating a specific action—and meets the audience's needs in a critical moment.</li>
-            <li>Professional Appearance: The use of the American Heart Association's branding, a clear layout, and a professional design lends it credibility. This makes the audience trust the information presented, which is vital for any form of technical communication.</li>
-          </ul>
-            
-          <h3>Role of Technical Communication</h3>
-          <p>
-              Looking ahead, I see technical communication playing a significant role in my career. The chapter's argument that employers highly value communication skills resonates with me. No matter how technical my field gets, I will always need to explain my work to managers, team members, and clients who may not share my level of expertise.
-          </p>
-          <p>
-              Being able to translate complex ideas into clear, actionable information will be essential for collaboration and project success. Whether it's writing a project proposal, creating a presentation on data findings, or even just sending a clear and concise email, the principles of effective technical communication will be a constant in my professional life.
-          </p>
-          <p>
-              The chapter solidified my belief that strong communication isn't just a "soft skill" but a foundational and highly valuable professional tool. <span title="Lightbulb">&#128161;</span>
-          </p>
-      
+          <section>
+            <h3>Defining Technical Communication</h3>
+            <p>
+              If I were to explain technical communication to a colleague, I'd say it's the process of making complex
+              information clear, concise, and easy for a specific audience to use. It’s not just about writing manuals;
+              it's about creating any communication—be it an email, a presentation, or a webpage—that helps people
+              understand a topic, complete a task, or make a decision. My background in computer science has shown me
+              this firsthand. Explaining a software architecture to both project managers and other engineers requires
+              tailoring the same core information for different audiences. This aligns with the chapter's definition,
+              which describes technical communication as a set of activities people do to "discover, shape, and transmit
+              information." It's the bridge between the expert and the person who needs to use that expert's knowledge.
+            </p>
+          </section>
+
+          <hr>
+
+          <section>
+            <h3>An Example of Effective Technical Communication</h3>
+            <p>
+              An excellent example of effective technical communication is the "Symptoms of a Heart Attack" infographic
+              from the American Heart Association. As a former volunteer EMT, I saw how critical clear communication is
+              in high-stakes situations. This infographic, while it may seem like a simple health poster, is a powerful
+              piece of technical communication designed to convey vital information quickly and effectively when every
+              second counts.
+            </p>
+            <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Heart+Attack+Symptoms+Infographic"
+              alt="AHA Heart Attack Symptoms Infographic" style="width:100%;"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/4A5568?text=Image+Not+Found';">
+          </section>
+
+          <hr>
+
+          <section>
+            <h3>Analysis</h3>
+            <p>
+              This infographic excels when measured against several of the "Measures of Excellence" mentioned in the
+              chapter:
+            </p>
+            <ul>
+              <li><strong>Clarity:</strong> It uses simple language ("Chest discomfort," "Shortness of breath") and
+                clear icons. There's no jargon, which is crucial for a general audience with no medical training.</li>
+              <li><strong>Conciseness:</strong> In an emergency, no one has time to read a long document. This
+                infographic presents the most vital information economically, getting the message across in seconds.
+              </li>
+              <li><strong>Usability:</strong> This is its strongest feature. The design is clean, the text is large, and
+                the combination of words and images makes it highly accessible. It achieves its purpose—motivating a
+                specific action (calling 911)—and meets the audience's needs in a critical moment.</li>
+              <li><strong>Professional Appearance:</strong> The use of the American Heart Association's branding and a
+                professional design lends it credibility, which makes the audience trust the information.</li>
+            </ul>
+          </section>
+
+          <hr>
+
+          <section>
+            <h3>The Role of Technical Communication in My Future</h3>
+            <p>
+              Looking ahead, I see technical communication playing a significant role in my career in computer science.
+              The chapter's argument that employers highly value communication skills resonates with me. No matter how
+              technical my work gets, I will always need to explain it to managers, team members, and clients who may
+              not share my level of expertise. Being able to translate complex ideas into clear, actionable information
+              will be essential for success. The principles of effective technical communication will be a constant in
+              my professional life, and I believe my experiences as both a student of technology and a first responder
+              have given me a unique appreciation for its importance. The chapter solidified my belief that strong
+              communication isn't just a "soft skill" but a foundational and highly valuable professional tool.
+            </p>
+          </section>
         </div>
       </article>
     </section>
@@ -164,4 +299,5 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>
