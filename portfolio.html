@@ -537,6 +537,8 @@
       border-radius: var(--radius-lg);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: var(--shadow);
+      cursor: pointer;
+      position: relative;
     }
 
     .contact-item:hover {
@@ -551,15 +553,43 @@
       width: 24px;
     }
 
-    .contact-item a {
+    .contact-item .contact-text {
       color: var(--text);
       text-decoration: none;
       font-weight: 600;
+      flex: 1;
     }
 
-    .contact-item a:hover {
-      color: var(--primary);
-      text-decoration: underline;
+    .contact-item .copy-btn {
+      opacity: 0;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: absolute;
+      right: 20px;
+    }
+
+    .contact-item:hover .copy-btn {
+      opacity: 1;
+    }
+
+    .contact-item .copy-btn:hover {
+      background: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
+    .contact-item .copy-btn.copied {
+      background: #10b981;
+    }
+
+    .contact-item .copy-btn.copied::after {
+      content: ' ✓';
     }
 
 
@@ -866,25 +896,27 @@
     <section id="contact" class="section" style="background: var(--bg-light);">
       <div class="container">
         <h2 class="section-title fade-in">Get In Touch</h2>
-        <p class="section-subtitle fade-in">Let’s connect and collaborate</p>
-
         <div class="contact-content">
           <div class="contact-info fade-in">
-            <div class="contact-item">
+            <div class="contact-item" data-copy="aaryasingh@gmail.com">
               <i class="fas fa-envelope"></i>
-              <a href="mailto:aaryasingh@gmail.com">aaryasingh@gmail.com</a>
+              <span class="contact-text">aaryasingh@gmail.com</span>
+              <button class="copy-btn">Copy</button>
             </div>
-            <div class="contact-item">
+            <div class="contact-item" data-copy="(224) 281-9061">
               <i class="fas fa-phone"></i>
-              <a href="tel:+12242819061">(224) 281-9061</a>
+              <span class="contact-text">(224) 281-9061</span>
+              <button class="copy-btn">Copy</button>
             </div>
-            <div class="contact-item">
+            <div class="contact-item" data-copy="https://linkedin.com/in/aarya-singh-604106ab/">
               <i class="fab fa-linkedin"></i>
-              <a href="https://linkedin.com/in/aarya-singh-604106ab/" target="_blank">linkedin.com/in/aarya-singh-604106ab/</a>
+              <span class="contact-text">linkedin.com/in/aarya-singh-604106ab/</span>
+              <button class="copy-btn">Copy</button>
             </div>
-            <div class="contact-item">
+            <div class="contact-item" data-copy="https://github.com/AaryaSingh">
               <i class="fab fa-github"></i>
-              <a href="https://github.com/AaryaSingh" target="_blank">github.com/AaryaSingh</a>
+              <span class="contact-text">github.com/AaryaSingh</span>
+              <button class="copy-btn">Copy</button>
             </div>
           </div>
         </div>
@@ -942,6 +974,48 @@
     // Observe all animated elements
     document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
       observer.observe(el);
+    });
+
+    // Copy functionality for contact items
+    document.querySelectorAll('.contact-item').forEach(item => {
+      const copyBtn = item.querySelector('.copy-btn');
+      const textToCopy = item.getAttribute('data-copy');
+      
+      copyBtn.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          
+          // Visual feedback
+          copyBtn.textContent = 'Copied!';
+          copyBtn.classList.add('copied');
+          
+          // Reset after 2 seconds
+          setTimeout(() => {
+            copyBtn.textContent = 'Copy';
+            copyBtn.classList.remove('copied');
+          }, 2000);
+          
+        } catch (err) {
+          // Fallback for older browsers
+          const textArea = document.createElement('textarea');
+          textArea.value = textToCopy;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          
+          // Visual feedback
+          copyBtn.textContent = 'Copied!';
+          copyBtn.classList.add('copied');
+          
+          setTimeout(() => {
+            copyBtn.textContent = 'Copy';
+            copyBtn.classList.remove('copied');
+          }, 2000);
+        }
+      });
     });
 
 
