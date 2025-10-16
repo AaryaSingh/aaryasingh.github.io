@@ -637,8 +637,10 @@
     /* Contact Section */
     .contact-content {
       display: flex;
-      justify-content: center;
-      max-width: 600px;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
@@ -647,21 +649,34 @@
       backdrop-filter: blur(20px);
     }
 
+    .contact-intro {
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .contact-intro p {
+      font-size: 1.125rem;
+      color: var(--text-light);
+      margin-bottom: 32px;
+    }
+
     .contact-info {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
       width: 100%;
     }
 
     .contact-item {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 20px;
-      padding: 20px;
+      text-align: center;
+      gap: 16px;
+      padding: 32px 24px;
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: var(--shadow);
       cursor: pointer;
@@ -669,21 +684,23 @@
     }
 
     .contact-item:hover {
-      transform: translateX(8px);
-      box-shadow: var(--shadow-lg);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary);
     }
 
     .contact-item i {
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       color: var(--primary);
-      width: 24px;
+      margin-bottom: 8px;
     }
 
     .contact-item .contact-text {
       color: var(--text);
       text-decoration: none;
       font-weight: 600;
-      flex: 1;
+      font-size: 0.95rem;
+      word-break: break-all;
     }
 
     .contact-item .copy-btn {
@@ -692,13 +709,13 @@
       color: white;
       border: none;
       border-radius: var(--radius);
-      padding: 8px 12px;
-      font-size: 0.8rem;
-      font-weight: 500;
+      padding: 8px 20px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      position: absolute;
-      right: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      margin-top: 8px;
     }
 
     .contact-item:hover .copy-btn {
@@ -716,6 +733,12 @@
 
     .contact-item .copy-btn.copied::after {
       content: ' ✓';
+    }
+
+    @media (max-width: 768px) {
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
     }
 
 
@@ -994,9 +1017,9 @@
               <span class="tech-tag">Arbitrage</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link">
-                <i class="fas fa-chart-line"></i>
-                Trading Competition
+              <a href="https://github.com/raymond-zeng/imc-prosperity-2025" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
               </a>
             </div>
           </div>
