@@ -709,9 +709,39 @@
       color: white;
     }
 
+    .contact-item::after {
+      content: 'Copied!';
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      background: #10b981;
+      color: white;
+      padding: 8px 16px;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-item.copied::after {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+
     @media (max-width: 768px) {
       .contact-info {
         grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      
+      .contact-item::after {
+        bottom: -36px;
+        font-size: 0.8rem;
       }
     }
 
