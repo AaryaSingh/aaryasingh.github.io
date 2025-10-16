@@ -45,6 +45,23 @@
       --radius-xl: 32px;
     }
 
+    [data-theme="dark"] {
+      --text: #f1f5f9;
+      --text-light: #cbd5e1;
+      --text-muted: #94a3b8;
+      --bg: #1e293b;
+      --bg-light: #0f172a;
+      --bg-dark: #020617;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --border: #334155;
+      --border-light: #1e293b;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+      --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.5);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -63,6 +80,11 @@
       background-attachment: fixed;
       overflow-x: hidden;
       position: relative;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    [data-theme="dark"] body {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     }
 
     body::before {
@@ -159,12 +181,32 @@
     }
 
 
+    .theme-toggle {
+      background: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 8px 12px;
+      font-size: 1.25rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(0, 0, 0, 0.2);
+      transform: translateY(-1px);
+    }
+
     .mobile-menu-toggle {
       display: none;
       background: none;
       border: none;
       font-size: 1.5rem;
-      color: var(--text);
+      color: white;
       cursor: pointer;
     }
 
@@ -771,9 +813,14 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -829,9 +876,9 @@
               <p>Natural Language Processing, Deep Learning, Linear Algebra I & II, Multivariable Calculus, Advanced Algorithms, Applied Combinatorics, Stochastic Processes, Systems & Networks, Design & Analysis of Algorithms, Robotics, Real Analysis</p>
             </div>
             <div class="resume-item">
-              <h4>Clubs & Activities</h4>
-              <div class="meta">Leadership & Community Involvement</div>
-              <p>Robojackets Software Team, GTXR Avionics, Quiz Bowl, Swim Club. Volunteering: Coach, Robotics Team (250+ hrs); Tutor, Schoolhouse; Volunteer EMT/Firefighter & Lifeguard</p>
+              <h4>Technical Activities</h4>
+              <div class="meta">University Involvement</div>
+              <p>Robojackets Software Team, GTXR Avionics (Rocketry Club). Volunteering: Robotics Team Coach (250+ hrs), Technical Tutor</p>
             </div>
           </div>
 
@@ -857,30 +904,25 @@
 
         <div class="resume-content" style="margin-top: 32px;">
           <div class="resume-card fade-in">
-            <h3>Leadership & Activities</h3>
+            <h3>Additional Projects</h3>
             <div class="resume-item">
-              <h4>Quiz Bowl Captain</h4>
-              <div class="meta">National Competition Team • 2016 - 2023</div>
-              <p>Led team to 2 U.S. national championship titles (PACE NSC & HSNCT 2023). Conducted multiple national tournaments (online + in-person) and led team practice sessions. Qualified for PACE NSC & NAQT HSNCT (2020-2022).</p>
+              <h4>Mars Society Research</h4>
+              <div class="meta">Research & Design Team • 2019 - 2024</div>
+              <p>Implemented YOLO neural network for Martian resource detection with modified loss function. Contributed to 3 research papers selected for further study. Finalist in 2021 Moon Society's Moonbase Competition.</p>
             </div>
             <div class="resume-item">
-              <h4>Mars Society Researcher</h4>
-              <div class="meta">Research & Design Team • 2019 - 2024</div>
-              <p>Implemented YOLO neural network for Martian resource detection with modified loss function. Contributed to 3 research papers selected for further study. Finalist in 2021 Moon Society's Moonbase Competition. Created terraforming structures and orbital space station using CAD.</p>
+              <h4>VEX Robotics Leadership</h4>
+              <div class="meta">Team Captain & Programmer • 2017 - 2023</div>
+              <p>Led team to 4 world championships and Illinois State Championship (2023). Developed autonomous navigation system using GPS, odometry, and PID control algorithms.</p>
             </div>
           </div>
 
           <div class="resume-card fade-in">
-            <h3>Awards & Honors</h3>
+            <h3>Recognition</h3>
             <div class="resume-item">
-              <h4>National Championships</h4>
-              <div class="meta">Quiz Bowl & Robotics</div>
-              <p>1st place HSNCT & PACE NSC (2023), 1st place Illinois State VEX Championship (2023), 11th place VEX Worlds (2023), 5x Tournament Champion, 3x Excellence Award, 2x Design Award</p>
-            </div>
-            <div class="resume-item">
-              <h4>Academic Recognition</h4>
-              <div class="meta">Mathematics & Design</div>
-              <p>AIME Qualifier (2021, 2022), IDEA 1st place CAD Award (2020), ILMEA 7th District Selectee - Percussion (2017, 2020, 2022)</p>
+              <h4>Technical Competitions</h4>
+              <div class="meta">Programming & Mathematics</div>
+              <p>AIME Qualifier (2021, 2022) - Top 5% of AMC participants nationwide</p>
             </div>
           </div>
         </div>
@@ -1077,6 +1119,39 @@
 
 
   <script>
+    // Dark mode functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const htmlElement = document.documentElement;
+
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', currentTheme);
+    
+    // Set initial icon
+    if (currentTheme === 'dark') {
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+
+    // Toggle theme
+    themeToggle.addEventListener('click', () => {
+      const theme = htmlElement.getAttribute('data-theme');
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update icon
+      if (newTheme === 'dark') {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      }
+    });
+
     // Header scroll effect
     window.addEventListener('scroll', () => {
       const header = document.getElementById('header');
