@@ -366,14 +366,109 @@
       font-weight: 600;
       color: var(--text);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: visible;
+    }
+
+    .skill-tag::before {
+      content: attr(data-category);
+      position: absolute;
+      top: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-tag::after {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: rgba(0, 0, 0, 0.9);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-tag:hover::before,
+    .skill-tag:hover::after {
+      opacity: 1;
     }
 
     .skill-tag:hover {
-      background: var(--primary);
       color: white;
-      border-color: var(--primary);
+      border-color: transparent;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+
+    /* Language Skills */
+    .skill-tag.language {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      border: none;
+    }
+
+    .skill-tag.language:hover {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+
+    /* ML/AI Skills */
+    .skill-tag.ml-ai {
+      background: linear-gradient(135deg, #06b6d4, #0891b2);
+      color: white;
+      border: none;
+    }
+
+    .skill-tag.ml-ai:hover {
+      background: linear-gradient(135deg, #0891b2, #0e7490);
+      box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+    }
+
+    /* Web Development Skills */
+    .skill-tag.web {
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: white;
+      border: none;
+    }
+
+    .skill-tag.web:hover {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+    }
+
+    /* Cloud & DevOps Skills */
+    .skill-tag.cloud {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      border: none;
+    }
+
+    .skill-tag.cloud:hover {
+      background: linear-gradient(135deg, #059669, #047857);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Tools & Design Skills */
+    .skill-tag.tools {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+      border: none;
+    }
+
+    .skill-tag.tools:hover {
+      background: linear-gradient(135deg, #d97706, #b45309);
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
     }
 
     .download-btn {
@@ -719,7 +814,6 @@
     <section id="resume" class="section" style="background: var(--bg-light);">
       <div class="container">
         <h2 class="section-title fade-in">Resume</h2>
-        <p class="section-subtitle fade-in">Education, experience, and skills</p>
 
         <div class="resume-content">
           <div class="resume-card fade-in">
@@ -765,24 +859,24 @@
           <div class="resume-card fade-in">
             <h3>Skills</h3>
             <div class="skills-grid">
-              <div class="skill-tag">Python</div>
-              <div class="skill-tag">Java</div>
-              <div class="skill-tag">C++</div>
-              <div class="skill-tag">TypeScript</div>
-              <div class="skill-tag">React</div>
-              <div class="skill-tag">Node.js</div>
-              <div class="skill-tag">SQL</div>
-              <div class="skill-tag">MongoDB</div>
-              <div class="skill-tag">TensorFlow</div>
-              <div class="skill-tag">PyTorch</div>
-              <div class="skill-tag">LangChain</div>
-              <div class="skill-tag">LangGraph</div>
-              <div class="skill-tag">OpenCV</div>
-              <div class="skill-tag">AWS</div>
-              <div class="skill-tag">Docker</div>
-              <div class="skill-tag">Kubernetes</div>
-              <div class="skill-tag">Git</div>
-              <div class="skill-tag">CAD</div>
+              <div class="skill-tag language" data-category="Language">Python</div>
+              <div class="skill-tag language" data-category="Language">Java</div>
+              <div class="skill-tag language" data-category="Language">C++</div>
+              <div class="skill-tag language" data-category="Language">TypeScript</div>
+              <div class="skill-tag language" data-category="Language">SQL</div>
+              <div class="skill-tag ml-ai" data-category="ML/AI">TensorFlow</div>
+              <div class="skill-tag ml-ai" data-category="ML/AI">PyTorch</div>
+              <div class="skill-tag ml-ai" data-category="ML/AI">LangChain</div>
+              <div class="skill-tag ml-ai" data-category="ML/AI">LangGraph</div>
+              <div class="skill-tag ml-ai" data-category="ML/AI">OpenCV</div>
+              <div class="skill-tag web" data-category="Web Dev">React</div>
+              <div class="skill-tag web" data-category="Web Dev">Node.js</div>
+              <div class="skill-tag web" data-category="Web Dev">MongoDB</div>
+              <div class="skill-tag cloud" data-category="Cloud/DevOps">AWS</div>
+              <div class="skill-tag cloud" data-category="Cloud/DevOps">Docker</div>
+              <div class="skill-tag cloud" data-category="Cloud/DevOps">Kubernetes</div>
+              <div class="skill-tag cloud" data-category="Cloud/DevOps">Git</div>
+              <div class="skill-tag tools" data-category="Tools">CAD</div>
             </div>
           </div>
 
