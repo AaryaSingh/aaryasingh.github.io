@@ -505,9 +505,10 @@
 
     /* Contact Section */
     .contact-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      display: flex;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     #contact {
@@ -519,6 +520,7 @@
       display: flex;
       flex-direction: column;
       gap: 24px;
+      width: 100%;
     }
 
     .contact-item {
@@ -556,75 +558,6 @@
       text-decoration: underline;
     }
 
-    .contact-form {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-xl);
-      padding: 40px;
-      box-shadow: var(--shadow-xl);
-    }
-
-    .form-group {
-      margin-bottom: 24px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 12px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 16px 20px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      font-size: 1rem;
-      background: var(--bg);
-      color: var(--text);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: var(--text-muted);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      background: var(--bg);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .submit-btn {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 16px 40px;
-      border: none;
-      border-radius: var(--radius-lg);
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: var(--shadow-lg);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    .submit-btn:hover {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-xl), 0 0 20px rgba(99, 102, 241, 0.4);
-    }
 
     /* Footer */
     .footer {
@@ -648,8 +581,7 @@
       }
 
       .about-content,
-      .resume-content,
-      .contact-content {
+      .resume-content {
         grid-template-columns: 1fr;
         gap: 32px;
       }
@@ -949,22 +881,6 @@
               <a href="https://github.com/AaryaSingh" target="_blank">github.com/AaryaSingh</a>
             </div>
           </div>
-
-          <form class="contact-form fade-in" id="contact-form">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message</button>
-          </form>
         </div>
       </div>
     </section>
@@ -1022,25 +938,6 @@
       observer.observe(el);
     });
 
-    // Contact form handling
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const formData = new FormData(this);
-      const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        message: formData.get('message')
-      };
-
-      console.log('Contact form submitted:', data);
-
-      // Show success message
-      alert('Thank you for your message! I\'ll get back to you soon.');
-
-      // Reset form
-      this.reset();
-    });
 
     // Resume download function
     function downloadResume() {
