@@ -993,18 +993,18 @@
           <div class="project-card fade-in">
             <h3>Linearly Scalable 3D Reconstruction via Covisibility-Guided Sparse Attention</h3>
             <p>
-              Proposed a novel sparse attention mechanism for transformer-based 3D reconstruction, reducing inference complexity from quadratic O(N²) to linear O(Nk). Achieved a 22.8% speedup on large-scale datasets and improved validation loss by 15% on CO3D by integrating geometric priors to prune redundant attention weights.
+              Designed a Covisibility-Guided Sparse Attention mechanism for VGGT, reducing complexity from O(N²) to O(Nk) using MegaLoc-based dynamic viewing graphs. Implemented custom block-sparse kernels in OpenAI Triton, achieving a 22.8% latency reduction on DL3DV-10K. Demonstrated that geometric sparsity acts as a structural regularizer, reducing validation loss by 15% on CO3D compared to dense baselines.
             </p>
             <div class="tech-stack">
-              <span class="tech-tag">Deep Learning</span>
               <span class="tech-tag">Computer Vision</span>
               <span class="tech-tag">Transformers</span>
-              <span class="tech-tag">3D Reconstruction</span>
+              <span class="tech-tag">OpenAI Triton</span>
+              <span class="tech-tag">MegaLoc</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link">
+              <a href="covissparsevggt.pdf" class="project-link" target="_blank">
                 <i class="fas fa-file-alt"></i>
-                Paper (arXiv)
+                Paper
               </a>
             </div>
           </div>
@@ -1100,25 +1100,6 @@
               <a href="#" class="project-link">
                 <i class="fas fa-hand-paper"></i>
                 Project
-              </a>
-            </div>
-          </div>
-
-          <div class="project-card fade-in">
-            <h3>BagelQB - Quiz Bowl Practice Platform</h3>
-            <p>
-              Built a full-stack web application enabling multiple users to practice quiz bowl questions together in real-time. Features include multiplayer functionality, question database management, and live scoring system.
-            </p>
-            <div class="tech-stack">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">Full-Stack</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/BagelQB" class="project-link" target="_blank">
-                <i class="fab fa-github"></i>
-                GitHub
               </a>
             </div>
           </div>
